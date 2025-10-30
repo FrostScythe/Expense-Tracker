@@ -1,3 +1,5 @@
+package com.expenseTracker.AuthService.controller;
+
 import com.expenseTracker.AuthService.entities.RefreshToken;
 import com.expenseTracker.AuthService.request.AuthRequestDTO;
 import com.expenseTracker.AuthService.request.RefreshTokenRequestDTO;

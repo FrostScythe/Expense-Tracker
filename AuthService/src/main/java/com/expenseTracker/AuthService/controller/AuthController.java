@@ -1,3 +1,5 @@
+package com.expenseTracker.AuthService.controller;
+
 import com.expenseTracker.AuthService.entities.RefreshToken;
 import com.expenseTracker.AuthService.model.UserInfoDto;
 import com.expenseTracker.AuthService.response.JwtResponseDTO;
@@ -27,7 +29,7 @@ public class AuthController
     private UserDetailsServiceImpl userDetailsService;
 
     @PostMapping("auth/v1/signup")
-    public ResponseEntity SignUp(@RequestBody UserInfoDto userInfoDto){
+    public ResponseEntity<?> SignUp(@RequestBody UserInfoDto userInfoDto){
         try{
             Boolean isSignUped = userDetailsService.signupUser(userInfoDto);
             if(Boolean.FALSE.equals(isSignUped)){
