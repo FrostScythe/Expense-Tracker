@@ -31,7 +31,7 @@ public class AuthController
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
 
-    @PostMapping("/api/auth/v1/signup")
+    @PostMapping("/auth/v1/signup")
     public ResponseEntity<?> SignUp(@RequestBody UserInfoDto userInfoDto){
         try{
             Boolean isSignUped = userDetailsService.signupUser(userInfoDto);
