@@ -50,7 +50,7 @@ Before running this application, ensure you have the following installed:
 ### Step 1: Clone the Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/FrostScythe/Expense-Tracker
 cd AuthService
 ```
 
@@ -323,12 +323,6 @@ This project is part of the Expense Tracker application.
 ## 📞 Support
 
 For issues and questions, please open an issue in the repository.
-
-## 🙏 Acknowledgments
-
-- Spring Boot Team for the excellent framework
-- Spring Security for robust security features
-- JWT.io for JWT implementation resources
 
 ---
 

@@ -1,6 +1,7 @@
 package com.expenseTracker.AuthService.service;
 
 import com.expenseTracker.AuthService.entities.UserInfo;
+import com.expenseTracker.AuthService.eventProducer.UserInfoProducer;
 import com.expenseTracker.AuthService.model.UserInfoDto;
 import com.expenseTracker.AuthService.repository.UserRepository;
 import lombok.AllArgsConstructor;
@@ -29,6 +30,9 @@ public class UserDetailsServiceImpl implements UserDetailsService
 
     @Autowired
     private final PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private final UserInfoProducer userInfoProducer;
 
 
     private static final Logger log = LoggerFactory.getLogger(UserDetailsServiceImpl.class);
@@ -60,6 +64,7 @@ public class UserDetailsServiceImpl implements UserDetailsService
         String userId = UUID.randomUUID().toString();
         userRepository.save(new UserInfo(userId, userInfoDto.getUsername(), userInfoDto.getPassword(), new HashSet<>()));
         // pushEventToQueue
+        userInfoProducer.sendEventToKafka(userInfoDto);
         return true;
     }
 }
